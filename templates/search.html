@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Results</title>
+</head>
+<body>
+  <main class="container">
+      <h1>Search Results for "{{keyword}}":</h1>
+
+    <figure>
+      <hgroup>
+        <h4>Results in We Work Remotly</h4>
+        <a href="/export-wwr?keyword={{keyword}}" target="_blank">Export As <i class="fa-sharp fa-solid fa-file-csv"></i></a>
+      </hgroup>
+      <table role="grid">
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for job in wwr %}
+          <tr>
+            <td>{{job.position}}</td>
+            <td>{{job.company}}</td>
+            <td>{{job.location}}</td>
+            <td><a href="{{job.link}}" target="_blank"><i class="fa-solid fa-link"></i></a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </figure>
+
+    <figure>
+      <hgroup>
+        <h4>Results in Remoteok</h4>
+        <a href="/export-remoteok?keyword={{keyword}}" target="_blank">Export As </a>
+      </hgroup>
+      <table role="grid">
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Company</th>
+          <th>Location</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for job in remoteok %}
+          <tr>
+            <td>{{job.position}}</td>
+            <td>{{job.company}}</td>
+            <td>{{job.location}}</td>
+            <td><a href="{{job.link}}" target="_blank"><i class="fa-solid fa-link"></i></a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </figure>
+
+  </main>
+</body>
+</html>
